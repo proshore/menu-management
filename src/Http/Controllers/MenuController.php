@@ -2,16 +2,14 @@
 
 namespace Proshore\MenuManagement\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\File;
 use Illuminate\Http\Request;
-use Proshore\MenuManagement\Http\Requests\MenuItemRequest;
+use App\Http\Controllers\Controller;
 use Proshore\MenuManagement\Models\Menu;
 use Proshore\MenuManagement\Models\MenuItem;
+use Proshore\MenuManagement\Http\Requests\MenuItemRequest;
 
 class MenuController extends Controller
 {
-
     /**
      * @var MenuItem
      */
@@ -22,7 +20,6 @@ class MenuController extends Controller
      */
     private $menu;
 
-
     /**
      * MenuController constructor.
      *
@@ -31,13 +28,12 @@ class MenuController extends Controller
      */
     public function __construct(MenuItem $menuItem, Menu $menu)
     {
-        $this->menu     = $menu;
+        $this->menu = $menu;
         $this->menuItem = $menuItem;
     }
 
-
     /**
-     * Display a listing of the menu items
+     * Display a listing of the menu items.
      *
      * @return \Illuminate\View\View
      */
@@ -51,15 +47,14 @@ class MenuController extends Controller
             'type',
             'value',
             'target_group',
-            'status'
+            'status',
         ])->get();
 
         return View('MenuManagement::index', compact('menuItems'));
     }
 
-
     /**
-     * Display the listing of menu containers
+     * Display the listing of menu containers.
      *
      * @return \Illuminate\View\View
      */
@@ -70,21 +65,20 @@ class MenuController extends Controller
         return View('MenuManagement::menu-container', compact('menuContainers'));
     }
 
-
     /**
-     * Display the form for creating menu item
+     * Display the form for creating menu item.
      *
      * @return \Illuminate\View\View
      */
     public function create()
     {
         $menuContainers = $this->menu->all(['name', 'id'])->pluck('name', 'id');
-        $menuTypes      = $this->menuItem->menuTypeList();
-        $menuStatus     = $this->menuItem->menuStatusList();
-        $menuItems      = $this->menuItem->where('menu_item_id', null)->select('id', 'name')->pluck('name', 'id');
+        $menuTypes = $this->menuItem->menuTypeList();
+        $menuStatus = $this->menuItem->menuStatusList();
+        $menuItems = $this->menuItem->where('menu_item_id', null)->select('id', 'name')->pluck('name', 'id');
 
         $pageModel = config('proshore-menu-management.cms.model');
-        $pageKey   = config('proshore-menu-management.cms.key');
+        $pageKey = config('proshore-menu-management.cms.key');
         $pageValue = config('proshore-menu-management.cms.value');
 
         $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
@@ -93,9 +87,8 @@ class MenuController extends Controller
             compact('menuContainers', 'menuTypes', 'menuStatus', 'menuItems', 'pages'));
     }
 
-
     /**
-     * Store the newly created menu item
+     * Store the newly created menu item.
      *
      * @param Request $request
      *
@@ -109,9 +102,8 @@ class MenuController extends Controller
         return redirect()->route('menu-item.index');
     }
 
-
     /**
-     * Display the form for editing the menu item
+     * Display the form for editing the menu item.
      *
      * @param $id
      *
@@ -122,12 +114,12 @@ class MenuController extends Controller
         $menuItem = $this->menuItem->findOrFail($id);
 
         $menuContainers = $this->menu->all(['name', 'id'])->pluck('name', 'id');
-        $menuTypes      = $this->menuItem->menuTypeList();
-        $menuStatus     = $this->menuItem->menuStatusList();
-        $menuItems      = $this->menuItem->where('menu_item_id', null)->select('id', 'name')->pluck('name', 'id');
+        $menuTypes = $this->menuItem->menuTypeList();
+        $menuStatus = $this->menuItem->menuStatusList();
+        $menuItems = $this->menuItem->where('menu_item_id', null)->select('id', 'name')->pluck('name', 'id');
 
         $pageModel = config('proshore-menu-management.cms.model');
-        $pageKey   = config('proshore-menu-management.cms.key');
+        $pageKey = config('proshore-menu-management.cms.key');
         $pageValue = config('proshore-menu-management.cms.value');
 
         $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
@@ -136,9 +128,8 @@ class MenuController extends Controller
             compact('menuItem', 'menuContainers', 'menuTypes', 'menuStatus', 'menuItems', 'pages'));
     }
 
-
     /**
-     * Update the menu item record
+     * Update the menu item record.
      *
      * @param MenuItemRequest $request
      * @param                 $id
@@ -154,9 +145,8 @@ class MenuController extends Controller
         return redirect()->route('menu-item.index');
     }
 
-
     /**
-     * Remove the menu item record
+     * Remove the menu item record.
      *
      * @param $id
      *

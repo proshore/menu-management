@@ -5,13 +5,10 @@ namespace Proshore\MenuManagement\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class MenuManagement
- *
- * @package \Proshore\MenuManagement\Facades
+ * Class MenuManagement.
  */
 class MenuManagementFacade extends Facade
 {
-
     /**
      * @return string
      */
@@ -19,5 +16,4 @@ class MenuManagementFacade extends Facade
     {
         return 'proshore-menu-management';
     }
-
 }

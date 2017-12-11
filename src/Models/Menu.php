@@ -6,12 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-
     protected $fillable = [
         'slug',
-        'name'
+        'name',
     ];
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

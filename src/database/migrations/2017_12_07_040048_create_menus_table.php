@@ -6,7 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateMenusTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -21,7 +20,6 @@ class CreateMenusTable extends Migration
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
