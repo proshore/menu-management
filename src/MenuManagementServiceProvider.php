@@ -22,6 +22,9 @@ class MenuManagementServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/config/proshore-menu-management.php' => config_path('proshore-menu-management.php'),
         ], 'config');
+        $this->publishes([
+            __DIR__.'/resources/views' => resource_path('views/vendor/menu-management'),
+        ], 'views');
     }
 
     /**
