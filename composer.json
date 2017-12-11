@@ -1,0 +1,31 @@
+{
+    "name": "proshore/menu-management",
+    "description": "A database based menu managment system for laravel backend",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Babish Shrestha",
+            "email": "babishshrestha@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Proshore\\MenuManagement\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "spatie/eloquent-sortable": "^3.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Proshore\\MenuManagement\\MenuManagementServiceProvider"
+            ],
+            "aliases": {
+                "MenuManagement": "Proshore\\MenuManagement\\Facades\\MenuManagementFacade"
+            }
+        }
+    }
+}
