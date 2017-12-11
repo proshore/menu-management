@@ -6,21 +6,19 @@ use Illuminate\Contracts\Validation\Rule;
 
 class MenuLinkValue implements Rule
 {
-
     /**
-     * The type of Menu
+     * The type of Menu.
      *
-     * @var $type
+     * @var
      */
     public $type;
 
     /**
-     * The value of menu type
+     * The value of menu type.
      *
-     * @var $typeValue
+     * @var
      */
     public $typeValue;
-
 
     /**
      * Create a new rule instance.
@@ -29,10 +27,9 @@ class MenuLinkValue implements Rule
      */
     public function __construct($type, $typeValue)
     {
-        $this->type       = $type;
+        $this->type = $type;
         $this->typeValue = $typeValue;
     }
-
 
     /**
      * Determine if the validation rule passes.
@@ -50,7 +47,6 @@ class MenuLinkValue implements Rule
 
         return true;
     }
-
 
     /**
      * Get the validation error message.

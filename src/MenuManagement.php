@@ -6,13 +6,10 @@ use Proshore\MenuManagement\Models\Menu;
 use Proshore\MenuManagement\Models\MenuItem;
 
 /**
- * Class Menu
- *
- * @package \Proshore\MenuManagement
+ * Class Menu.
  */
 class MenuManagement
 {
-
     /**
      * @param $containerName
      *
@@ -21,7 +18,7 @@ class MenuManagement
     public function getMenuByContainer($containerName, $targetGroup = 0)
     {
         if (empty($containerName)) {
-            return null;
+            return;
         }
         $menu = Menu::where('slug', $containerName)->select('id')->first();
         if (isset($menu->id)) {
@@ -29,7 +26,5 @@ class MenuManagement
                            ->select('menu_id', 'menu_item_id', 'name', 'type', 'value', 'target_group', 'display_order')
                            ->get();
         }
-
-        return null;
     }
 }

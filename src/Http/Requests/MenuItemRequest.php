@@ -7,7 +7,6 @@ use Proshore\MenuManagement\Rules\MenuLinkValue;
 
 class MenuItemRequest extends FormRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -17,7 +16,6 @@ class MenuItemRequest extends FormRequest
     {
         return true;
     }
-
 
     /**
      * Get the validation rules that apply to the request.
@@ -30,7 +28,7 @@ class MenuItemRequest extends FormRequest
             'name'         => 'required',
             'target_group' => 'required',
             'menu_id'      => 'required',
-            'value'        => new MenuLinkValue($this->request->get('type'), 1)
+            'value'        => new MenuLinkValue($this->request->get('type'), 1),
         ];
     }
 }

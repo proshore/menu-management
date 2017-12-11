@@ -11,6 +11,6 @@ if (config('proshore-menu-management.middleware')) {
 Route::group($groupParameters, function () {
     Route::get('menu', 'MenuController@menuContainers');
     Route::resource('menu-item', 'MenuController', ['except' => [
-       'show'
+       'show',
     ]]);
 });

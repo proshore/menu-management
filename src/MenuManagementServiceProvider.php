@@ -14,8 +14,8 @@ class MenuManagementServiceProvider extends ServiceProvider
     public function boot()
     {
         //Load Package routes, views, migrations
-        $this->loadRoutesFrom(__DIR__ . '/routes/routes.php');
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadRoutesFrom(__DIR__.'/routes/routes.php');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadViewsFrom(__DIR__.'/resources/views', 'MenuManagement');
 
         //Publishing

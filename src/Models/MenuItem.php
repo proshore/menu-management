@@ -2,13 +2,12 @@
 
 namespace Proshore\MenuManagement\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\SortableTrait;
 
 class MenuItem extends Model implements Sortable
 {
-
     use SortableTrait;
 
     public $sortable = [
@@ -24,9 +23,8 @@ class MenuItem extends Model implements Sortable
         'value',
         'target_group',
         'status',
-        'display_order'
+        'display_order',
     ];
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -36,7 +34,6 @@ class MenuItem extends Model implements Sortable
         return $this->belongsTo('Proshore\MenuManagement\Models\Menu', 'menu_id')->select(['id', 'name']);
     }
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -44,7 +41,6 @@ class MenuItem extends Model implements Sortable
     {
         return $this->belongsTo('Proshore\MenuManagement\Models\MenuItem', 'menu_item_id')->select(['id', 'name']);
     }
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -57,12 +53,11 @@ class MenuItem extends Model implements Sortable
 
     public function page()
     {
-        return $this->belongsTo(config('proshore-menu-management.cms.model'), 'value')->select(['id','slug','name']);
+        return $this->belongsTo(config('proshore-menu-management.cms.model'), 'value')->select(['id', 'slug', 'name']);
     }
 
-
     /**
-     * List of menu type allowed
+     * List of menu type allowed.
      * @return array
      */
     public function menuTypeList()
@@ -70,9 +65,8 @@ class MenuItem extends Model implements Sortable
         return ['Internal Link', 'Pages', 'External Link'];
     }
 
-
     /**
-     * List of menu status
+     * List of menu status.
      * @return array
      */
     public function menuStatusList()
@@ -80,9 +74,8 @@ class MenuItem extends Model implements Sortable
         return ['Inactive', 'Active'];
     }
 
-
     /**
-     * Get the target group name
+     * Get the target group name.
      *
      * @return string
      */
@@ -93,9 +86,8 @@ class MenuItem extends Model implements Sortable
         return $targetGroups[$this->target_group];
     }
 
-
     /**
-     * Get the target group name
+     * Get the target group name.
      *
      * @return string
      */
@@ -105,7 +97,6 @@ class MenuItem extends Model implements Sortable
 
         return $status[$this->status];
     }
-
 
     public function setValueAttribute($value)
     {
