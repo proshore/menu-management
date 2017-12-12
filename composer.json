@@ -2,6 +2,7 @@
     "name": "proshore/menu-management",
     "description": "A database based menu managment system for laravel backend",
     "license": "MIT",
+    "keywords": ["laravel", "menu", "management", "backend"],
     "authors": [
         {
             "name": "Babish Shrestha",
