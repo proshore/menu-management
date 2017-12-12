@@ -3,11 +3,10 @@
 namespace Proshore\MenuManagement\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as BaseController;
 use Proshore\MenuManagement\Models\Menu;
 use Proshore\MenuManagement\Models\MenuItem;
+use Illuminate\Routing\Controller as BaseController;
 use Proshore\MenuManagement\Http\Requests\MenuItemRequest;
-
 
 class MenuController extends BaseController
 {
