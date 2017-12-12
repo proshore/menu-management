@@ -51,7 +51,7 @@ class MenuController extends BaseController
             'status',
         ])->get();
 
-        return View('MenuManagement::index', compact('menuItems'));
+        return View('menu-management::index', compact('menuItems'));
     }
 
     /**
@@ -63,7 +63,7 @@ class MenuController extends BaseController
     {
         $menuContainers = $this->menu->all();
 
-        return View('MenuManagement::menu-container', compact('menuContainers'));
+        return View('menu-management::menu-container', compact('menuContainers'));
     }
 
     /**
@@ -84,7 +84,7 @@ class MenuController extends BaseController
 
         $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
 
-        return View('MenuManagement::create',
+        return View('menu-management::create',
             compact('menuContainers', 'menuTypes', 'menuStatus', 'menuItems', 'pages'));
     }
 
@@ -125,7 +125,7 @@ class MenuController extends BaseController
 
         $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
 
-        return View('MenuManagement::edit',
+        return View('menu-management::edit',
             compact('menuItem', 'menuContainers', 'menuTypes', 'menuStatus', 'menuItems', 'pages'));
     }
 
