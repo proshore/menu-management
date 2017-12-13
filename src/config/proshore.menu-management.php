@@ -36,7 +36,7 @@ return [
         'enabled' => false,
         'model' => 'App\Page',
         'key' => 'id',
-        'value' => 'name',
+        'value' => 'title',
         ],
 
 ];

@@ -53,7 +53,7 @@ class MenuItem extends Model implements Sortable
 
     public function page()
     {
-        return $this->belongsTo(config('proshore.menu-management.cms.model'), 'value')->select(['id', 'slug', 'name']);
+        return $this->belongsTo(config('proshore.menu-management.cms.model'), 'value')->select(['id', 'slug', config('proshore.menu-management.cms.value')]);
     }
 
     /**

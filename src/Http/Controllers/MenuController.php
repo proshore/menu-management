@@ -102,7 +102,7 @@ class MenuController extends BaseController
         $menuItem = $this->menuItem;
         $menuItem->create($request->all());
 
-        return redirect()->route('menu-item.index');
+        return redirect()->route('menu-item.index')->with('success', __('Menu item created successfully'));
     }
 
     /**
@@ -148,7 +148,7 @@ class MenuController extends BaseController
 
         $menuItem->update($request->all());
 
-        return redirect()->route('menu-item.index');
+        return redirect()->route('menu-item.index')->with('success', __('Menu item updated successfully'));
     }
 
     /**
@@ -163,6 +163,6 @@ class MenuController extends BaseController
         $menuItem = $this->menuItem->findOrFail($id);
         $menuItem->delete();
 
-        return redirect()->route('menu-item.index');
+        return redirect()->route('menu-item.index')->with('success', __('Menu item deleted successfully'));
     }
 }
