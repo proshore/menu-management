@@ -18,7 +18,7 @@
     "prefer-stable": true,
     "require": {
         "spatie/eloquent-sortable": "^3.4",
-        "illuminate/support": "5.5.*",
+        "illuminate/support": "5.5.*"
     },
     "extra": {
         "laravel": {
