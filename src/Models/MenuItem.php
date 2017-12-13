@@ -53,7 +53,7 @@ class MenuItem extends Model implements Sortable
 
     public function page()
     {
-        return $this->belongsTo(config('proshore-menu-management.cms.model'), 'value')->select(['id', 'slug', 'name']);
+        return $this->belongsTo(config('proshore.menu-management.cms.model'), 'value')->select(['id', 'slug', 'name']);
     }
 
     /**
@@ -81,7 +81,7 @@ class MenuItem extends Model implements Sortable
      */
     public function getTargetGroupNameAttribute()
     {
-        $targetGroups = config('proshore-menu-management.target-group');
+        $targetGroups = config('proshore.menu-management.target-group');
 
         return $targetGroups[$this->target_group];
     }

@@ -35,7 +35,7 @@
 <div class="form-group row">
     <label for="menu-item-target-group" class="col-sm-2 col-form-label">{{ __('Target group') }}</label>
     <div class="col-sm-10">
-        {!! Form::select('target_group', config('proshore-menu-management.target-group') , null ,['class' => 'custom-select', 'id' => 'menu-item-target-group']) !!}
+        {!! Form::select('target_group', config('proshore.menu-management.target-group') , null ,['class' => 'custom-select', 'id' => 'menu-item-target-group']) !!}
     </div>
 </div>
 
@@ -54,7 +54,7 @@
 </div>
 
 
-@push(config('proshore-menu-management.script-stack'))
+@push(config('proshore.menu-management.script-stack'))
 <script type="application/javascript">
   var menuItemType = document.getElementById('menu-item-type');
   var menuItemtypePrefix = document.getElementById('menu-item-type-prefix');

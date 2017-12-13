@@ -1,4 +1,4 @@
-@extends(config('proshore-menu-management.layout-extend-path'))
+@extends(config('proshore.menu-management.layout-extend-path'))
 
 @section('content')
     {!! Form::model($menuItem, ['route' => ['menu-item.update', $menuItem->id],'method' => 'put', 'class' => config('proshroe-menu-management.form-class')]) !!}

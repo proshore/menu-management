@@ -1,7 +1,7 @@
-@extends(config('proshore-menu-management.layout-extend-path'))
+@extends(config('proshore.menu-management.layout-extend-path'))
 
 @section('content')
-    {!! Form::open(['route' => 'menu-item.store','method' => 'post', 'class' => config('proshore-menu-management.form-class')]) !!}
+    {!! Form::open(['route' => 'menu-item.store','method' => 'post', 'class' => config('proshore.menu-management.form-class')]) !!}
 
         @include('MenuManagement::form')
 

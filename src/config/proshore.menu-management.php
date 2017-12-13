@@ -33,6 +33,7 @@ return [
      * CMS pages model name
      */
     'cms' => [
+        'enabled' => false,
         'model' => 'App\Page',
         'key' => 'id',
         'value' => 'name',

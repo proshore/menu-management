@@ -1,7 +1,7 @@
-@extends(config('proshore-menu-management.layout-extend-path'))
+@extends(config('proshore.menu-management.layout-extend-path'))
 
 @section('content')
-    <table class="{{ config('proshore-menu-management.table-class') }}">
+    <table class="{{ config('proshore.menu-management.table-class') }}">
         <thead>
         <tr>
             <th scope="col">Name</th>

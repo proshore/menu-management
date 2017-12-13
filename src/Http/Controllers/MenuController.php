@@ -50,7 +50,7 @@ class MenuController extends BaseController
             'status',
         ])->get();
 
-        return View('menu-management::index', compact('menuItems'));
+        return view('menu-management::index', compact('menuItems'));
     }
 
     /**
@@ -62,7 +62,7 @@ class MenuController extends BaseController
     {
         $menuContainers = $this->menu->all();
 
-        return View('menu-management::menu-container', compact('menuContainers'));
+        return view('menu-management::menu-container', compact('menuContainers'));
     }
 
     /**
@@ -77,13 +77,17 @@ class MenuController extends BaseController
         $menuStatus = $this->menuItem->menuStatusList();
         $menuItems = $this->menuItem->where('menu_item_id', null)->select('id', 'name')->pluck('name', 'id');
 
-        $pageModel = config('proshore-menu-management.cms.model');
-        $pageKey = config('proshore-menu-management.cms.key');
-        $pageValue = config('proshore-menu-management.cms.value');
+        $pageModel = config('proshore.menu-management.cms.model');
+        $pageKey = config('proshore.menu-management.cms.key');
+        $pageValue = config('proshore.menu-management.cms.value');
 
-        $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
+        $pages = [];
+        if(config('proshore.menu-management.cms.enabled')) {
+            $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
+        }
 
-        return View('menu-management::create',
+
+        return view('menu-management::create',
             compact('menuContainers', 'menuTypes', 'menuStatus', 'menuItems', 'pages'));
     }
 
@@ -118,13 +122,16 @@ class MenuController extends BaseController
         $menuStatus = $this->menuItem->menuStatusList();
         $menuItems = $this->menuItem->where('menu_item_id', null)->select('id', 'name')->pluck('name', 'id');
 
-        $pageModel = config('proshore-menu-management.cms.model');
-        $pageKey = config('proshore-menu-management.cms.key');
-        $pageValue = config('proshore-menu-management.cms.value');
+        $pageModel = config('proshore.menu-management.cms.model');
+        $pageKey = config('proshore.menu-management.cms.key');
+        $pageValue = config('proshore.menu-management.cms.value');
 
-        $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
+        $pages = [];
+        if(config('proshore.menu-management.cms.enabled')) {
+            $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
+        }
 
-        return View('menu-management::edit',
+        return view('menu-management::edit',
             compact('menuItem', 'menuContainers', 'menuTypes', 'menuStatus', 'menuItems', 'pages'));
     }
 
