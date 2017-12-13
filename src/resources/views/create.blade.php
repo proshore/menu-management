@@ -3,7 +3,7 @@
 @section('content')
     {!! Form::open(['route' => 'menu-item.store','method' => 'post', 'class' => config('proshore.menu-management.form-class')]) !!}
 
-        @include('MenuManagement::form')
+        @include('menu-management::form')
 
         <div class="form-group row">
             <div class="col-sm-2">&nbsp;</div>
