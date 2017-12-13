@@ -9,7 +9,7 @@ if (config('proshore.menu-management.middleware')) {
 }
 
 Route::group($groupParameters, function () {
-    Route::get('menu', 'MenuController@menuContainers');
+    Route::get('menu', 'MenuController@menuContainers')->name('menu-container.index');
     Route::resource('menu-item', 'MenuController', ['except' => [
        'show',
     ]]);
