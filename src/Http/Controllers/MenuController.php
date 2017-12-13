@@ -82,10 +82,9 @@ class MenuController extends BaseController
         $pageValue = config('proshore.menu-management.cms.value');
 
         $pages = [];
-        if(config('proshore.menu-management.cms.enabled')) {
+        if (config('proshore.menu-management.cms.enabled')) {
             $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
         }
-
 
         return view('menu-management::create',
             compact('menuContainers', 'menuTypes', 'menuStatus', 'menuItems', 'pages'));
@@ -127,7 +126,7 @@ class MenuController extends BaseController
         $pageValue = config('proshore.menu-management.cms.value');
 
         $pages = [];
-        if(config('proshore.menu-management.cms.enabled')) {
+        if (config('proshore.menu-management.cms.enabled')) {
             $pages = $pageModel::all([$pageKey, $pageValue])->pluck($pageValue, $pageKey);
         }
 
