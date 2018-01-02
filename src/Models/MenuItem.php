@@ -104,13 +104,12 @@ class MenuItem extends Model implements Sortable
     }
 
     /**
-     * Get child menu items based on parent menu id
+     * Get child menu items based on parent menu id.
      * @param $menuItemId
-     * @return integer
+     * @return int
      */
     public static function getChildCount($menuItemId)
     {
         return static::where('menu_item_id', $menuItemId)->count();
     }
-
 }
