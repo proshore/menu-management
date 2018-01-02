@@ -1,8 +1,8 @@
 # menu-management
-[![Latest Stable Version](https://poser.pugx.org/proshore/menu-management/v/stable)](https://packagist.org/packages/proshore/menu-management)
-[![Total Downloads](https://poser.pugx.org/proshore/menu-management/downloads)](https://packagist.org/packages/proshore/menu-management)
-[![Latest Unstable Version](https://poser.pugx.org/proshore/menu-management/v/unstable)](https://packagist.org/packages/proshore/menu-management)
-[![License](https://poser.pugx.org/proshore/menu-management/license)](https://packagist.org/packages/proshore/menu-management)
+[![Latest Stable Version](https://poser.pugx.org/proshore/email-templates/v/stable)](https://packagist.org/packages/proshore/email-templates)
+[![Total Downloads](https://poser.pugx.org/proshore/email-templates/downloads)](https://packagist.org/packages/proshore/email-templates)
+[![Latest Unstable Version](https://poser.pugx.org/proshore/email-templates/v/unstable)](https://packagist.org/packages/proshore/email-templates)
+[![License](https://poser.pugx.org/proshore/email-templates/license)](https://packagist.org/packages/proshore/email-templates)
 [![StyleCI](https://styleci.io/repos/113825495/shield?branch=master)](https://styleci.io/repos/113825495)
 
 A database based Menu managment with Bootstrap for Laravel 5.5
