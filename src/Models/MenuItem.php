@@ -102,4 +102,15 @@ class MenuItem extends Model implements Sortable
     {
         $this->attributes['value'] = ($this->type == 1) ? $value[1] : $value[0];
     }
+
+    /**
+     * Get child menu items based on parent menu id
+     * @param $menuItemId
+     * @return integer
+     */
+    public static function getChildCount($menuItemId)
+    {
+        return static::where('menu_item_id', $menuItemId)->count();
+    }
+
 }

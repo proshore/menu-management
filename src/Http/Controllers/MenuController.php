@@ -161,6 +161,13 @@ class MenuController extends BaseController
     public function destroy($id)
     {
         $menuItem = $this->menuItem->findOrFail($id);
+
+        //avoid deletion in case its parent and has child menus
+        $childItemsCount = MenuItem::getChildCount($id);
+        if ($childItemsCount > 0) {
+            return redirect()->route('menu-item.index')->with('error', __('Menu item contains sub menus so cannot be deleted.'));
+        }
+
         $menuItem->delete();
 
         return redirect()->route('menu-item.index')->with('success', __('Menu item deleted successfully'));
