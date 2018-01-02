@@ -1,9 +1,9 @@
 # menu-management
-
-
-[![Packagist](https://img.shields.io/packagist/dt/proshore/menu-management.svg)](https://packagist.org/packages/proshore/menu-management)
+[![Latest Stable Version](https://poser.pugx.org/proshore/menu-management/v/stable)](https://packagist.org/packages/proshore/menu-management)
+[![Total Downloads](https://poser.pugx.org/proshore/menu-management/downloads)](https://packagist.org/packages/proshore/menu-management)
+[![Latest Unstable Version](https://poser.pugx.org/proshore/menu-management/v/unstable)](https://packagist.org/packages/proshore/menu-management)
+[![License](https://poser.pugx.org/proshore/menu-management/license)](https://packagist.org/packages/proshore/menu-management)
 [![StyleCI](https://styleci.io/repos/113825495/shield?branch=master)](https://styleci.io/repos/113825495)
-[![license](https://img.shields.io/github/license/proshore/menu-management.svg)](https://github.com/proshore/menu-management/blob/master/LICENSE)
 
 A database based Menu managment with Bootstrap for Laravel 5.5
 
@@ -12,10 +12,10 @@ This package will create a menu management module in your backend. The menu mana
 This package is solely prepare to help build database based menu management and may have some unknown glitches. Please report issues if you find one.
 
 ## Installation
-1. Require this package with composer. Remove the dev-master to download the stable version
+1. Require this package with composer.
 
 ```shell
-composer require proshore/menu-management:dev-master
+composer require proshore/menu-management
 ```
 
 Laravel 5.5 uses Package Auto-Discovery, so you don't have to manually add the package to the ServiceProvider.
