@@ -38,7 +38,7 @@ return [
         'key' => 'id',
         'value' => 'title',
         ],
-    /**
+    /*
      * Number of records to be displayed per page
      */
     'records_per_page' => 5,
