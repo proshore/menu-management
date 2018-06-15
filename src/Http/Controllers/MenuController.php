@@ -39,6 +39,7 @@ class MenuController extends BaseController
      */
     public function index()
     {
+        $recordsPerPage = config('proshore.menu-management.records_per_page');
         $menuItems = $this->menuItem->with('menu')->with('page')->select([
             'id',
             'menu_id',
@@ -48,7 +49,7 @@ class MenuController extends BaseController
             'value',
             'target_group',
             'status',
-        ])->get();
+        ])->paginate($recordsPerPage);
 
         return view('menu-management::index', compact('menuItems'));
     }
