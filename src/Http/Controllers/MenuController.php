@@ -40,7 +40,7 @@ class MenuController extends BaseController
     public function index()
     {
         $recordsPerPage = config('proshore.menu-management.records_per_page');
-        $menuItems = $this->menuItem->with('menu')->with('page')->select([
+        $menuItems = $this->menuItem->ordered()->with('menu')->with('page')->select([
             'id',
             'menu_id',
             'menu_item_id',
