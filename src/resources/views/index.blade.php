@@ -34,6 +34,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             {!! link_to_route('menu-item.edit', 'Edit', $menuItem->id, ['class' => 'dropdown-item']); !!}
+                            {!! link_to_route('menu-item.reorder', 'Reorder', $menuItem->id, ['class' => 'dropdown-item']); !!}
                             {!! Form::open(['route' => [ 'menu-item.destroy', $menuItem->id ], 'method' =>
                                             'DELETE']) !!}
                             {!! Form::submit( _('Delete'), ['class' => 'dropdown-item', 'onclick' => 'return confirm("'._("Are you sure you want to delete this?").'")',]) !!}
