@@ -3,8 +3,8 @@
 namespace Proshore\MenuManagement\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Proshore\MenuManagement\Rules\MenuLinkValue;
 use Proshore\MenuManagement\Models\MenuItem;
+use Proshore\MenuManagement\Rules\MenuLinkValue;
 
 class MenuItemRequest extends FormRequest
 {
@@ -30,7 +30,7 @@ class MenuItemRequest extends FormRequest
             'target_group' => 'required',
             'menu_id'      => 'required',
             'value'        => new MenuLinkValue($this->request->get('type'), 1),
-            'menu_item_id' => 'nullable'
+            'menu_item_id' => 'nullable',
         ];
     }
 
@@ -47,7 +47,7 @@ class MenuItemRequest extends FormRequest
             $menuId = $data['menu_id'];
             $menuItemId = $data['menu_item_id'] ?? null;
 
-            if (!$menuItemId) {
+            if (! $menuItemId) {
                 return;
             }
 
@@ -55,7 +55,7 @@ class MenuItemRequest extends FormRequest
             $parent = MenuItem::find($menuItemId);
 
             // if no parent found or if parent has a different menu_id, then invalid
-            if (!$parent || $parent->menu_id != $menuId) {
+            if (! $parent || $parent->menu_id != $menuId) {
                 $validator->errors()->add('menu_item_id', 'Invalid parent menu');
             }
         });
