@@ -8,7 +8,10 @@ use Spatie\EloquentSortable\SortableTrait;
 
 class MenuItem extends Model implements Sortable
 {
-    use SortableTrait;
+    use SortableTrait {
+        buildSortQuery as protected sortableBuildSortQuery;
+        scopeOrdered as protected sortableScopeOrdered;
+    }
 
     public $sortable = [
         'order_column_name'  => 'display_order',
@@ -111,5 +114,26 @@ class MenuItem extends Model implements Sortable
     public static function getChildCount($menuItemId)
     {
         return static::where('menu_item_id', $menuItemId)->count();
+    }
+
+    public function buildSortQuery()
+    {
+        $query = $this->sortableBuildSortQuery();
+
+        $query->where('menu_id', $this->menu_id)
+            ->where('menu_item_id', $this->menu_item_id);
+
+        return $query;
+    }
+
+    public function scopeOrdered(\Illuminate\Database\Eloquent\Builder $query, string $direction = 'asc')
+    {
+
+        $query = $query->orderBy('menu_id', $direction)
+            ->orderBy('menu_item_id', $direction);
+
+        $query = $this->sortableScopeOrdered($query, $direction);
+
+        return $query;
     }
 }

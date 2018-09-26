@@ -7,6 +7,7 @@ use Proshore\MenuManagement\Models\Menu;
 use Proshore\MenuManagement\Models\MenuItem;
 use Illuminate\Routing\Controller as BaseController;
 use Proshore\MenuManagement\Http\Requests\MenuItemRequest;
+use Validator;
 
 class MenuController extends BaseController
 {
@@ -40,7 +41,7 @@ class MenuController extends BaseController
     public function index()
     {
         $recordsPerPage = config('proshore.menu-management.records_per_page');
-        $menuItems = $this->menuItem->with('menu')->with('page')->select([
+        $menuItems = $this->menuItem->ordered()->with('menu')->with('page')->select([
             'id',
             'menu_id',
             'menu_item_id',
@@ -172,5 +173,42 @@ class MenuController extends BaseController
         $menuItem->delete();
 
         return redirect()->route('menu-item.index')->with('success', __('Menu item deleted successfully'));
+    }
+
+    public function reorder(Request $request, $id)
+    {
+        $menuItem = $this->menuItem->findOrFail($id);
+        $enableSorting = true;
+
+        $menuItems = MenuItem::where('menu_id', $menuItem->menu_id)
+            ->where('menu_item_id', $menuItem->menu_item_id)
+            ->ordered()
+            ->get();
+
+        return view('menu-management::reorder', compact('menuItems', 'enableSorting'));
+    }
+
+    public function updateOrder(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'menuOrder'    => 'required',
+        ]);
+
+        if ($validator->passes()) {
+            MenuItem::setNewOrder(json_decode($request->get('menuOrder')));
+            $response = [
+                'status'  => true,
+                'message' => __('Menu order updated successfully.'),
+            ];
+            $request->session()->flash('success', __('Menu order updated successfully.'));
+        } else {
+            $response = [
+                'status' => false,
+                'error'  => $validator->errors()->all()
+            ];
+
+            $request->session()->flash('error', __('Menu order update failed.'));
+        }
+        return response()->json($response);
     }
 }

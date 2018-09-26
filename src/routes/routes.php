@@ -13,4 +13,6 @@ Route::group($groupParameters, function () {
     Route::resource('menu-item', 'MenuController', ['except' => [
        'show',
     ]]);
+    Route::get('menu-item/{id}/reorder', 'MenuController@reorder')->name('menu-item.reorder');
+    Route::post('menu-item/ajax-update-menu-order', 'MenuController@updateOrder')->name('menu-item.updateReorder');
 });
