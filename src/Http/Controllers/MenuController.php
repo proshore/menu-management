@@ -2,12 +2,12 @@
 
 namespace Proshore\MenuManagement\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
 use Proshore\MenuManagement\Models\Menu;
 use Proshore\MenuManagement\Models\MenuItem;
 use Illuminate\Routing\Controller as BaseController;
 use Proshore\MenuManagement\Http\Requests\MenuItemRequest;
-use Validator;
 
 class MenuController extends BaseController
 {
@@ -204,11 +204,12 @@ class MenuController extends BaseController
         } else {
             $response = [
                 'status' => false,
-                'error'  => $validator->errors()->all()
+                'error'  => $validator->errors()->all(),
             ];
 
             $request->session()->flash('error', __('Menu order update failed.'));
         }
+
         return response()->json($response);
     }
 }

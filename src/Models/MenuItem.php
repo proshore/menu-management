@@ -128,7 +128,6 @@ class MenuItem extends Model implements Sortable
 
     public function scopeOrdered(\Illuminate\Database\Eloquent\Builder $query, string $direction = 'asc')
     {
-
         $query = $query->orderBy('menu_id', $direction)
             ->orderBy('menu_item_id', $direction);
 
